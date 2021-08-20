@@ -5,4 +5,4 @@
 
 
 
-![erd](C:\Projects\dentally\erd\erd.png)
+![erd](./erd/erd.png)
