@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Qna.Application.UnitTests.Common
 {
-    internal class QueryTestFixture : IDisposable
+    public class QueryTestFixture : IDisposable
     {
         public DatabaseContext Context { get; private set; }
         public IMapper Mapper { get; private set; }

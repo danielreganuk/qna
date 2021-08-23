@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AutoMapper;
+using Qna.Application.Interfaces;
+using Qna.Application.Questions.Queries.GetQuestionDetail;
+using Qna.Application.UnitTests.Common;
+using Shouldly;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
-using Qna.Application.Interfaces;
-using Qna.Application.UnitTests.Common;
 using Xunit;
 
 namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
 {
-    public class GetQuestionDetailQueryTests : IDisposable
+    [Collection("QueryCollection")]
+    public class GetQuestionDetailQueryTests
     {
         public IDatabaseContext _context;
         public IMapper _mapper;
@@ -25,17 +25,15 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
         public async Task GivenValidRequest_ShouldGetQuestion()
         {
             // Arrange //
-            var handler = new GetQuestionDetail.Handler(_context, _mapper);
+            var handler = new GetQuestionDetailQuery.Handler(_context, _mapper);
 
             // Act //
-            var result = await handler.Handle(new GetQuestionDetail(1), CancellationToken.None);
+            var result = await handler.Handle(new GetQuestionDetailQuery(1), CancellationToken.None);
 
             // Assert //
             result.ShouldBeOfType<QuestionDetailVm>();
             result.Title.ShouldBe("Please help!");
             result.Id.ShouldBe(1);
-
-
         }
     }
 }
