@@ -13,7 +13,7 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
     public class CreateQuestionCommandTests : CommandTestBase
     {
         [Fact]
-        public async void Handle_GivenValidRequest_ShouldCreateQuestion()
+        public async void GivenValidRequest_ShouldCreateQuestion()
         {
             // Arrange //
             var mediatorMock = new Mock<IMediator>();
@@ -32,5 +32,6 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
             // Assert //
             response.ShouldBeGreaterThan(0);
         }
+
     }
 }
