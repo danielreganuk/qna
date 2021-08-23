@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Qna.Application.Questions.Commands.CreateQuestion
 {
-    public class CreateQuestionCommand : IRequest<int>
+    public class CreateQuestionCommand : IRequest<Question>
     {
         public string Title { get; set; }
         public string Text { get; set; }
@@ -22,7 +22,7 @@ namespace Qna.Application.Questions.Commands.CreateQuestion
             CreatedDate = createdDate;
         }
 
-        public class Handler : IRequestHandler<CreateQuestionCommand, int>
+        public class Handler : IRequestHandler<CreateQuestionCommand, Question>
         {
             private readonly IDatabaseContext _context;
             private readonly IMediator _mediator;
@@ -33,7 +33,7 @@ namespace Qna.Application.Questions.Commands.CreateQuestion
                 _mediator = mediator;
             }
 
-            public async Task<int> Handle(CreateQuestionCommand req, CancellationToken ct)
+            public async Task<Question> Handle(CreateQuestionCommand req, CancellationToken ct)
             {
                 var entity = new Question
                 {
@@ -46,7 +46,7 @@ namespace Qna.Application.Questions.Commands.CreateQuestion
                 await _context.Questions.AddAsync(entity, ct);
                 await _context.SaveChangesAsync(ct);
 
-                return entity.QuestionId;
+                return entity;
             }
         }
     }

@@ -30,7 +30,28 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
                     CancellationToken.None);
 
             // Assert //
-            response.ShouldBeGreaterThan(0);
+            response.QuestionId.ShouldBeGreaterThan(0);
+        }
+
+        [Fact]
+        public async void GivenExistingAuthor_ShouldCreateQuestionWithExistingAuthorsId()
+        {
+            // Arrange //
+            var mediatorMock = new Mock<IMediator>();
+            var handler = new CreateQuestionCommand.Handler(_context, mediatorMock.Object);
+            var author = new Author
+            {
+                DisplayName = "QuestionMaker1",
+                EmailAddress = "qm1@moq.com"
+            };
+
+            // Act //
+            var response =
+                await handler.Handle(new CreateQuestionCommand("Question Title", "Question Text", author, DateTime.Now),
+                    CancellationToken.None);
+
+            // Assert //
+            response.Author.AuthorId.ShouldBe(1);
         }
 
     }
