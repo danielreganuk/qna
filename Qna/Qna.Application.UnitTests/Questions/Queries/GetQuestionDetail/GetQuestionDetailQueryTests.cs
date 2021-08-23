@@ -11,12 +11,12 @@ using Xunit;
 namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
 {
     [Collection("QueryCollection")]
-    public class GetQuestionDetailQueryTests
+    public class GetQuestionsListQueryTests
     {
         public IDatabaseContext _context;
         public IMapper _mapper;
 
-        public GetQuestionDetailQueryTests(QueryTestFixture fixture)
+        public GetQuestionsListQueryTests(QueryTestFixture fixture)
         {
             _context = fixture.Context;
             _mapper = fixture.Mapper;
@@ -35,6 +35,7 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
             result.ShouldBeOfType<QuestionDetailVm>();
             result.Title.ShouldBe("Please help!");
             result.Id.ShouldBe(1);
+            result.Answers.Count.ShouldBe(3);
         }
 
         [Fact]
@@ -44,7 +45,7 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
             var handler = new GetQuestionDetailQuery.Handler(_context, _mapper);
 
             // Act //
-            var result = await Should.ThrowAsync<Exception>(async () => await handler.Handle(new GetQuestionDetailQuery(2), CancellationToken.None));
+            var result = await Should.ThrowAsync<Exception>(async () => await handler.Handle(new GetQuestionDetailQuery(500), CancellationToken.None));
 
             // Assert //
             result.ShouldBeOfType<Exception>();

@@ -28,9 +28,27 @@ namespace Qna.Application.UnitTests.Common
             {
                 QuestionId = 1,
                 AuthorId = 1,
-                CreatedDate = DateTime.Now,
+                CreatedDate = DateTime.Now.AddMinutes(-2),
                 QuestionText = "I don't know how to do this?",
                 Title = "Please help!"
+            });
+
+            context.Questions.Add(new Question
+            {
+                QuestionId = 2,
+                AuthorId = 1,
+                CreatedDate = DateTime.Now.AddMinutes(-1),
+                QuestionText = "Sorry, another question fellas?",
+                Title = "Please help me, again!"
+            });
+
+            context.Questions.Add(new Question
+            {
+                QuestionId = 3,
+                AuthorId = 1,
+                CreatedDate = DateTime.Now,
+                QuestionText = "This is another example of me asking a question?",
+                Title = "I have one last question!"
             });
 
             context.Answers.AddRange(new[]
