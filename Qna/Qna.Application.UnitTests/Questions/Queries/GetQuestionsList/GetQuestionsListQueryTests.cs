@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Qna.Application.Interfaces;
 using Qna.Application.Questions.Queries.GetQuestionDetail;
@@ -6,6 +7,7 @@ using Qna.Application.UnitTests.Common;
 using Shouldly;
 using System.Threading;
 using System.Threading.Tasks;
+using Qna.Application.Questions.Queries.GetQuestionsList;
 using Xunit;
 
 namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionsList
@@ -32,7 +34,7 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionsList
             var result = await handler.Handle(new GetQuestionsListQuery(), CancellationToken.None);
 
             // Assert //
-            result.ShouldBeOfType<QuestionListVm>();
+            result.ShouldBeOfType<List<QuestionListVm>>();
             result.Count.ShouldBe(3);
         }
 

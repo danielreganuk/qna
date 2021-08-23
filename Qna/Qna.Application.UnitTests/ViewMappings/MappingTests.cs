@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Qna.Application.Questions.Queries.GetQuestionDetail;
+using Qna.Application.Questions.Queries.GetQuestionsList;
 using Qna.Domain.Models;
 using Shouldly;
 using Xunit;
