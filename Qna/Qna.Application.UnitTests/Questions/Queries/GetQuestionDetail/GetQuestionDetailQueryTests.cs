@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Qna.Application.Interfaces;
 using Qna.Application.Questions.Queries.GetQuestionDetail;
 using Qna.Application.UnitTests.Common;
@@ -34,6 +35,19 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionDetail
             result.ShouldBeOfType<QuestionDetailVm>();
             result.Title.ShouldBe("Please help!");
             result.Id.ShouldBe(1);
+        }
+
+        [Fact]
+        public async Task GivenInvalidRequest_ShouldThrowException()
+        {
+            // Arrange //
+            var handler = new GetQuestionDetailQuery.Handler(_context, _mapper);
+
+            // Act //
+            var result = await Should.ThrowAsync<Exception>(async () => await handler.Handle(new GetQuestionDetailQuery(2), CancellationToken.None));
+
+            // Assert //
+            result.ShouldBeOfType<Exception>();
         }
     }
 }
