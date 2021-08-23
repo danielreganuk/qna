@@ -27,5 +27,16 @@ namespace Qna.Application.UnitTests.ViewMappings
             result.ShouldNotBeNull();
             result.ShouldBeOfType<QuestionDetailVm>();
         }
+
+        [Fact]
+        public void ShouldMapQuestionToQuestionListVm()
+        {
+            var entity = new Question();
+
+            var result = _mapper.Map<QuestionListVm>(entity);
+
+            result.ShouldNotBeNull();
+            result.ShouldBeOfType<QuestionListVm>();
+        }
     }
 }
