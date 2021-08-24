@@ -39,12 +39,6 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
             // Arrange //
             var mediatorMock = new Mock<IMediator>();
             var handler = new CreateQuestionCommand.Handler(_context, mediatorMock.Object);
-            var author = new Author
-            {
-                DisplayName = "QuestionMaker100",
-                EmailAddress = "qm1@moq.com"
-            };
-
             // Act //
             var response =
                 await handler.Handle(new CreateQuestionCommand("Question Title", "Question Text", null, DateTime.Now, 1),
