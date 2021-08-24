@@ -13,13 +13,15 @@ namespace Qna.Application.Questions.Commands.CreateQuestion
         public string Text { get; set; }
         public Author Author { get; set; }
         public DateTime CreatedDate { get; set; }
+        public int? AuthorId { get; set; }
 
-        public CreateQuestionCommand(string title, string text, Author author, DateTime createdDate)
+        public CreateQuestionCommand(string title, string text, Author author, DateTime createdDate, int? authorId = null)
         {
             Title = title;
             Text = text;
             Author = author;
             CreatedDate = createdDate;
+            AuthorId = authorId;
         }
 
         public class Handler : IRequestHandler<CreateQuestionCommand, Question>
@@ -39,9 +41,17 @@ namespace Qna.Application.Questions.Commands.CreateQuestion
                 {
                     Title = req.Title,
                     QuestionText = req.Text,
-                    CreatedDate = req.CreatedDate,
-                    Author = req.Author
+                    CreatedDate = req.CreatedDate
                 };
+
+                if (!req.AuthorId.HasValue)
+                {
+                    entity.Author = req.Author;
+                }
+                else
+                {
+                    entity.AuthorId = req.AuthorId.Value;
+                }
 
                 await _context.Questions.AddAsync(entity, ct);
                 await _context.SaveChangesAsync(ct);

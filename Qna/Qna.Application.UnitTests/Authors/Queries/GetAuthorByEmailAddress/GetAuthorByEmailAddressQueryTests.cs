@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Qna.Application.Authors.Queries.GetAuthorByEmailAddress;
 using Qna.Application.Interfaces;
 using Qna.Application.Questions.Queries.GetQuestionDetail;
 using Qna.Application.UnitTests.Common;
@@ -29,10 +30,10 @@ namespace Qna.Application.UnitTests.Authors.Queries.GetAuthorByEmailAddress
         public async Task GivenAuthorEmail_ShouldGetAuthor()
         {
             // Arrange //
-            var handler = new GetAuthorByEmailAddress.Handler(_context, _mapper);
+            var handler = new GetAuthorByEmailAddressQuery.Handler(_context);
 
             // Act //
-            var result = await handler.Handle(new GetAuthorByEmailAddress("qm1@moq.com"), CancellationToken.None);
+            var result = await handler.Handle(new GetAuthorByEmailAddressQuery("qm1@moq.com"), CancellationToken.None);
 
             // Assert //
             result.ShouldBeOfType<Author>();
@@ -43,10 +44,10 @@ namespace Qna.Application.UnitTests.Authors.Queries.GetAuthorByEmailAddress
         public async Task GivenInvalidAuthorEmail_ShouldThrowException()
         {
             // Arrange //
-            var handler = new GetAuthorByEmailAddress.Handler(_context, _mapper);
+            var handler = new GetAuthorByEmailAddressQuery.Handler(_context);
 
             // Act //
-            var result = await Should.ThrowAsync<Exception>(async () => await handler.Handle(new GetAuthorByEmailAddress("qm01@moq.com"), CancellationToken.None));
+            var result = await Should.ThrowAsync<Exception>(async () => await handler.Handle(new GetAuthorByEmailAddressQuery("qm01@moq.com"), CancellationToken.None));
 
             // Assert //
             result.ShouldBeOfType<Exception>();

@@ -41,17 +41,18 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
             var handler = new CreateQuestionCommand.Handler(_context, mediatorMock.Object);
             var author = new Author
             {
-                DisplayName = "QuestionMaker1",
+                DisplayName = "QuestionMaker100",
                 EmailAddress = "qm1@moq.com"
             };
 
             // Act //
             var response =
-                await handler.Handle(new CreateQuestionCommand("Question Title", "Question Text", author, DateTime.Now),
+                await handler.Handle(new CreateQuestionCommand("Question Title", "Question Text", null, DateTime.Now, 1),
                     CancellationToken.None);
 
             // Assert //
             response.Author.AuthorId.ShouldBe(1);
+            response.Author.DisplayName.ShouldBe("QuestionMaker1");
         }
 
     }
