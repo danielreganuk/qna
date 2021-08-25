@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Qna.Domain.Models;
 using System.Threading;
 using System.Threading.Tasks;
-using Qna.Domain.Models;
 
 namespace Qna.Application.Interfaces
 {

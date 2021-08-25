@@ -48,6 +48,5 @@ namespace Qna.Application.UnitTests.Questions.Commands.CreateQuestion
             response.Author.AuthorId.ShouldBe(1);
             response.Author.DisplayName.ShouldBe("QuestionMaker1");
         }
-
     }
 }

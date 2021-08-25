@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using Qna.Application.Interfaces.Mappings;
 using Qna.Domain.Models;
+using System;
+using System.Collections.Generic;
 
 namespace Qna.Application.Questions.Queries.GetQuestionDetail
 {
-    public class QuestionDetailVm : IMapFrom<Question>
+    public class QuestionDetailVm : IHaveCustomMapping
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -24,7 +23,6 @@ namespace Qna.Application.Questions.Queries.GetQuestionDetail
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.QuestionId))
                 .ForMember(d => d.AuthorDisplayName, opt => opt.MapFrom(s => s.Author.DisplayName))
                 .ForMember(d => d.AuthorEmailAddress, opt => opt.MapFrom(s => s.Author.EmailAddress));
-
         }
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Qna.Api.Shared;
 using Qna.Api.Tests.Common;
 using Qna.Application.Questions.Commands.CreateQuestion;
-using Qna.Application.Questions.Queries.GetQuestionDetail;
 using Qna.Domain.Models;
 using Shouldly;
+using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Qna.Api.Tests.Questions
@@ -46,7 +42,6 @@ namespace Qna.Api.Tests.Questions
             // Assert //
             response.EnsureSuccessStatusCode();
             responseObject.Success.ShouldBe(true);
-
         }
 
         [Fact]
@@ -74,7 +69,6 @@ namespace Qna.Api.Tests.Questions
             responseObject.Success.ShouldBe(true);
             viewModel.Author.AuthorId.ShouldBe(1);
             viewModel.Author.DisplayName.ShouldBe("QuestionMaker1");
-
         }
     }
 }

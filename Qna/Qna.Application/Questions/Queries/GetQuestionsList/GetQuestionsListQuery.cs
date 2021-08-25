@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Qna.Application.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Qna.Application.Questions.Queries.GetQuestionsList
 {
@@ -26,7 +25,7 @@ namespace Qna.Application.Questions.Queries.GetQuestionsList
 
             public async Task<List<QuestionListVm>> Handle(GetQuestionsListQuery req, CancellationToken ct)
             {
-                var questions = await _context.Questions.Include(q => q.Author)
+                var questions = await _context.Questions.Include(q => q.Author).Include(q => q.Answers)
                     .ProjectTo<QuestionListVm>(_mapper.ConfigurationProvider)
                     .ToListAsync(ct);
 
@@ -38,7 +37,6 @@ namespace Qna.Application.Questions.Queries.GetQuestionsList
                 // TODO: Add ability to paginate with page + offset.
 
                 return questions;
-
             }
         }
     }

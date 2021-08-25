@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Qna.Application.Interfaces.Mappings;
 using Qna.Persistence;
 using System;
-using Qna.Application.Interfaces.Mappings;
 using Xunit;
 
 namespace Qna.Application.UnitTests.Common

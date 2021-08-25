@@ -1,7 +1,7 @@
-﻿using Qna.Application.Interfaces.Mappings;
+﻿using AutoMapper;
+using Qna.Application.Interfaces.Mappings;
 using Qna.Domain.Models;
 using System;
-using AutoMapper;
 
 namespace Qna.Application.Questions.Queries.GetQuestionDetail
 {
@@ -20,7 +20,6 @@ namespace Qna.Application.Questions.Queries.GetQuestionDetail
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.AnswerId))
                 .ForMember(d => d.AuthorDisplayName, opt => opt.MapFrom(s => s.Author.DisplayName))
                 .ForMember(d => d.AuthorEmailAddress, opt => opt.MapFrom(s => s.Author.EmailAddress));
-
         }
     }
 }

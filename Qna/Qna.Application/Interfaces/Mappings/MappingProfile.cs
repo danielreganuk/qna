@@ -16,7 +16,7 @@ namespace Qna.Application.Interfaces.Mappings
         {
             var types = assembly.GetExportedTypes()
                 .Where(t => t.GetInterfaces().Any(i =>
-                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)))
+                    i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IMapFrom<>)) || t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IHaveCustomMapping)))
                 .ToList();
 
             foreach (var type in types)

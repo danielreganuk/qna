@@ -1,9 +1,9 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
 using Qna.Application.Interfaces;
 using Qna.Application.Questions.Queries.GetQuestionDetail;
 using Qna.Application.UnitTests.Common;
 using Shouldly;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;

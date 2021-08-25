@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Qna.Api.Shared;
+using System;
+using System.Threading.Tasks;
 
 namespace Qna.Api.Controllers
 {
@@ -28,9 +28,8 @@ namespace Qna.Api.Controllers
                 return StatusCode(500, response);
             }
 
-            if(response.DataCount == 0) response.DataCount = 1; // TODO: Make this elegant. Hack fix.
+            if (response.DataCount == 0) response.DataCount = 1; // TODO: Make this elegant. Hack fix.
             return Ok(response);
-            
         }
     }
 }

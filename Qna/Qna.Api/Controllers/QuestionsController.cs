@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Qna.Api.Shared;
-using Qna.Application.Questions.Queries.GetQuestionDetail;
-using Qna.Application.Questions.Queries.GetQuestionsList;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Qna.Application.Authors.Queries.GetAuthorByEmailAddress;
 using Qna.Application.Questions.Commands.CreateQuestion;
+using Qna.Application.Questions.Queries.GetQuestionDetail;
+using Qna.Application.Questions.Queries.GetQuestionsList;
+using System;
+using System.Threading.Tasks;
 
 namespace Qna.Api.Controllers
 {
@@ -42,8 +41,6 @@ namespace Qna.Api.Controllers
             var response = await Mediator.Send(command);
 
             return await GenerateResponse(response);
-
         }
-
     }
 }

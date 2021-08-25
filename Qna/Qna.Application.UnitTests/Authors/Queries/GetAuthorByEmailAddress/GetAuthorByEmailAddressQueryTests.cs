@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Qna.Application.Authors.Queries.GetAuthorByEmailAddress;
 using Qna.Application.Interfaces;
-using Qna.Application.Questions.Queries.GetQuestionDetail;
 using Qna.Application.UnitTests.Common;
 using Qna.Domain.Models;
 using Shouldly;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Qna.Application.UnitTests.Authors.Queries.GetAuthorByEmailAddress

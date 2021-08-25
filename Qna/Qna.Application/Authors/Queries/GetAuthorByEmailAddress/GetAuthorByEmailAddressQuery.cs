@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Qna.Application.Interfaces;
 using Qna.Domain.Models;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Qna.Application.Authors.Queries.GetAuthorByEmailAddress
 {
@@ -27,7 +25,6 @@ namespace Qna.Application.Authors.Queries.GetAuthorByEmailAddress
             {
                 _context = context;
             }
-
 
             public async Task<Author> Handle(GetAuthorByEmailAddressQuery req, CancellationToken ct)
             {

@@ -1,4 +1,3 @@
-using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +11,9 @@ using Qna.Application.Infrastructure;
 using Qna.Application.Interfaces;
 using Qna.Application.Questions.Queries.GetQuestionsList;
 using Qna.Persistence;
+using System.Reflection;
+using Qna.Application.Authors.Queries.GetAuthorByEmailAddress;
+using Qna.Persistence.Initialisers;
 
 namespace Qna.Api
 {
@@ -35,7 +37,7 @@ namespace Qna.Api
             services.AddConfiguredDbContext(Configuration);
             services.AddScoped<IDatabaseContext>(s => s.GetService<DatabaseContext>());
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            services.AddMediatR(typeof(GetQuestionsListQuery).Assembly);
+            services.AddMediatR(typeof(GetAuthorByEmailAddressQuery).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +68,8 @@ namespace Qna.Api
 
             ctx.Database.Migrate();
             app.UseDeveloperExceptionPage();
+
+            DevelopmentInit.Init(ctx);
         }
     }
 }

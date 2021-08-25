@@ -8,6 +8,7 @@ namespace Qna.Application.Infrastructure
         public AutoMapperProfile()
         {
             LoadStandardMappings();
+            LoadCustomMappings();
             LoadConverters();
         }
 
@@ -22,6 +23,16 @@ namespace Qna.Application.Infrastructure
             foreach (var map in mapsFrom)
             {
                 CreateMap(map.Source, map.Destination).ReverseMap();
+            }
+        }
+
+        private void LoadCustomMappings()
+        {
+            var mapsFrom = MapperProfileHelper.LoadCustomMappings(Assembly.GetExecutingAssembly());
+
+            foreach (var map in mapsFrom)
+            {
+                map.Mapping(this);
             }
         }
     }

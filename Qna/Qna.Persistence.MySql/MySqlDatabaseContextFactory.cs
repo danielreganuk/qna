@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Qna.Persistence.MySql
 {
@@ -17,7 +15,6 @@ namespace Qna.Persistence.MySql
                 .Build();
 
             var connectionString = config.GetConnectionString("DatabaseContext");
-
 
             var builder = new DbContextOptionsBuilder<DatabaseContext>();
             builder.UseMySql(

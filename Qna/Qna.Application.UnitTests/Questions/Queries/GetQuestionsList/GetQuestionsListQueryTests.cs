@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using AutoMapper;
+﻿using AutoMapper;
 using Qna.Application.Interfaces;
-using Qna.Application.Questions.Queries.GetQuestionDetail;
+using Qna.Application.Questions.Queries.GetQuestionsList;
 using Qna.Application.UnitTests.Common;
 using Shouldly;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Qna.Application.Questions.Queries.GetQuestionsList;
 using Xunit;
 
 namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionsList
@@ -37,6 +35,5 @@ namespace Qna.Application.UnitTests.Questions.Queries.GetQuestionsList
             result.ShouldBeOfType<List<QuestionListVm>>();
             result.Count.ShouldBe(3);
         }
-
     }
 }

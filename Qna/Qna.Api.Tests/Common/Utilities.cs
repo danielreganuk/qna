@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Qna.Domain.Models;
+using Qna.Persistence;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Qna.Domain.Models;
-using Qna.Persistence;
 
 namespace Qna.Api.Tests.Common
 {
@@ -70,6 +69,5 @@ namespace Qna.Api.Tests.Common
 
             context.SaveChanges();
         }
-
     }
 }

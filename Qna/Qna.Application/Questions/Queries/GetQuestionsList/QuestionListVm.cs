@@ -5,7 +5,7 @@ using System;
 
 namespace Qna.Application.Questions.Queries.GetQuestionsList
 {
-    public class QuestionListVm : IMapFrom<Question>
+    public class QuestionListVm : IHaveCustomMapping
     {
         public int Id { get; set; }
         public string Title { get; set; }

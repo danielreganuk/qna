@@ -16,6 +16,6 @@ namespace Qna.Domain.Models
         public int AuthorId { get; set; }
         public Author Author { get; set; }
         public DateTime CreatedDate { get; set; }
-        public ICollection<Answer> Answers { get; private set; }
+        public ICollection<Answer> Answers { get; set; }
     }
 }
