@@ -11,9 +11,9 @@ using Qna.Application.Interfaces;
 
 namespace Qna.Application.Questions.Queries.GetQuestionsList
 {
-    public class GetQuestionsListQuery
+    public class GetQuestionsListQuery : IRequest<List<QuestionListVm>>
     {
-        public class Handler
+        public class Handler : IRequestHandler<GetQuestionsListQuery, List<QuestionListVm>>
         {
             private readonly IDatabaseContext _context;
             private readonly IMapper _mapper;

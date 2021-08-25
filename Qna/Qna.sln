@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qna.Persistence.MySql", "Qn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{981E6926-4CF0-42D3-B2E5-2F9F33E00117}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qna.Application.UnitTests", "Qna.Application.UnitTests\Qna.Application.UnitTests.csproj", "{12305E99-30EC-476C-A71D-F6CF4F6F47AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qna.Application.UnitTests", "Qna.Application.UnitTests\Qna.Application.UnitTests.csproj", "{12305E99-30EC-476C-A71D-F6CF4F6F47AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qna.Api.Tests", "Qna.Api.Tests\Qna.Api.Tests.csproj", "{AC20325D-905B-4859-B2A6-2AE6E8945C5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{12305E99-30EC-476C-A71D-F6CF4F6F47AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12305E99-30EC-476C-A71D-F6CF4F6F47AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12305E99-30EC-476C-A71D-F6CF4F6F47AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC20325D-905B-4859-B2A6-2AE6E8945C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC20325D-905B-4859-B2A6-2AE6E8945C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC20325D-905B-4859-B2A6-2AE6E8945C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC20325D-905B-4859-B2A6-2AE6E8945C5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{A92E0394-20E8-4F8A-AAD2-8E9D56829317} = {7E160644-8CB5-4439-89C9-4214D0062C7E}
 		{E85AE450-2C20-4B4A-BC97-D11A6279AB38} = {7E160644-8CB5-4439-89C9-4214D0062C7E}
 		{12305E99-30EC-476C-A71D-F6CF4F6F47AD} = {981E6926-4CF0-42D3-B2E5-2F9F33E00117}
+		{AC20325D-905B-4859-B2A6-2AE6E8945C5B} = {981E6926-4CF0-42D3-B2E5-2F9F33E00117}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04FC5A98-21B6-4C16-A6AC-302169889C2D}
