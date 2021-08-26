@@ -1,16 +1,32 @@
 <div class="content">
 
   <div class="question-box-area">
-    <div class="ask-a-question" (click)="toggleQuestionBox()">Ask a question</div>
-    <div class="question-box" [class.open]="questionBoxOpen">ASK ME SOMETHING THEN</div>
+    <div class="ask-a-question noselect" (click)="toggleQuestionBox()">Ask a question</div>
+    <div class="question-box" [class.open]="questionBoxOpen">
+      <div class="question-box-content">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Try to be specific, so people can provide useful answers">
+
+        <label for="displayName">Display Name</label>
+        <input type="text" name="displayName" placeholder="If you've already asked a question, your previous display name will overwrite this">
+
+        <label for="email">Email</label>
+        <input type="text" name="email">
+
+        <label for="question">Question</label>
+        <textarea rows="6" name="question"></textarea>
+
+        <button class="submit-btn">Post question</button>
+      </div>
+    </div>
   </div>
 
 
   <div *ngIf="!vm.data">We don't have any questions</div>
-    <div *ngIf="vm.data">
+  <div class="question-container" *ngIf="vm.data">
     <div class="question" *ngFor="let question of vm.data; let i = index">
       <div class="summary">
-        <div class="title">{{question.title}}</div>
+        <a class="title" [routerLink]="['question', question.id]">{{question.title}}</a>
         <div class="author">Posted By: {{question.authorDisplayName}} | {{question.createdDate}}</div>
       </div>
       <div class="details">

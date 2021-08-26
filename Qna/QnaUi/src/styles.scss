@@ -11,26 +11,84 @@
   .content {
     margin: 0 auto;
     width: 50vw;
-    background-color: #fff;
   }
 }
 
 .question-box-area {
-  padding: 20px;
+  .ask-a-question {
+    color: #fda55a;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid #fda55a;
+    padding: 5px;
+    transition: 0.4s;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+      background-color: #fda55a;
+    }
+  }
 
   .question-box {
     overflow: hidden;
     max-height: 0;
     transition: 0.4s;
+    width: 100%;
+    margin-top: 5px;
 
     &.open {
-      max-height: 250px;
+      max-height: 450px;
       height: auto;
+    }
+
+    .question-box-content {
+      padding: 10px;
+      border: 1px solid #aaa;
+      label {
+        font-family: $primary-font;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      input {
+        width: 100%;
+        padding: 6px;
+        font-size: 14px;
+        font-family: $secondary-font;
+        border: #aaa solid 1px;
+
+        &xii::placeholder {
+          color: #bab9bb;
+        }
+
+        &:focus {
+          outline: none !important;
+          box-shadow: 0 0 2px #fda55a;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        border: #aaa solid 1px;
+
+        &:focus {
+          outline: none !important;
+          box-shadow: 0 0 2px #fda55a;
+        }
+      }
     }
   }
 }
 
+.question-container {
+  margin-top: 20px !important;
+}
+
 .question {
+  background-color: #fff;
   display: flex;
   padding: 20px;
   border-bottom: 1px solid #f2f6f7;
@@ -46,6 +104,11 @@
       font-weight: 600;
       font-size: 22px;
       flex: auto 1 1;
+      text-decoration: none;
+
+      &:visited {
+        color: #000;
+      }
     }
 
     .author {
@@ -76,5 +139,29 @@
         font-size: 12px;
       }
     }
+  }
+}
+
+.submit-btn {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: $primary-font;
+  padding: 10px 20px;
+  color: white;
+  border: 2px solid #fda55a;
+  cursor: pointer;
+  background-color: #fda55a;
+  transition: 0.4s;
+  position: relative;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    background-color: #fdbe87;
+    border: 2px solid #fdbe87;
+  }
+
+  &:focus {
+    outline: none;
   }
 }

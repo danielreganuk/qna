@@ -1,1 +1,20 @@
-<p>question-detail works!</p>
+<div *ngIf="vm.data">
+Question Title: {{vm.data.title}} <br>
+Question Text: {{vm.data.questionText}} <br>
+Created Date: {{vm.data.createdDate}} <br>
+Author: {{vm.data.authorDisplayName}} <br>
+Author Email: {{vm.data.authorEmailAddress}} <br> <br>
+
+<div *ngIf="vm.data.answers.length">
+  ANSWERS:<br> <br>
+
+  <div class *ngFor="let answer of vm.data.answers;">
+    Answer: {{answer.answerText}} <br>
+    Answer by: {{answer.authorDisplayName}}
+    <hr>
+  </div>
+</div>
+
+</div>
+
+

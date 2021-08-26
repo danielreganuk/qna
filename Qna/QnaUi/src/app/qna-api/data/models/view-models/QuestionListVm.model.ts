@@ -1,4 +1,3 @@
-
 export class QuestionListVm {
   id: number;
   title: string;
