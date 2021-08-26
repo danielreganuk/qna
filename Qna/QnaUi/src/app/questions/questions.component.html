@@ -1,5 +1,25 @@
 <div class="content">
 
-<div *ngIf="vm.data">We have some questions</div>
-<div *ngIf="!vm.data">We don't have any questions</div>
+  <div class="question-box-area">
+    <div class="ask-a-question" (click)="toggleQuestionBox()">Ask a question</div>
+    <div class="question-box" [class.open]="questionBoxOpen">ASK ME SOMETHING THEN</div>
+  </div>
+
+
+  <div *ngIf="!vm.data">We don't have any questions</div>
+    <div *ngIf="vm.data">
+    <div class="question" *ngFor="let question of vm.data; let i = index">
+      <div class="summary">
+        <div class="title">{{question.title}}</div>
+        <div class="author">Posted By: {{question.authorDisplayName}} | {{question.createdDate}}</div>
+      </div>
+      <div class="details">
+        <div class="answers">
+          <div class="answer-count">{{question.answerCount}}</div>
+          <div class="answer-text">Answers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

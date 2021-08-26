@@ -9,6 +9,7 @@ import { QuestionsClient } from '../qna-api/integration/clients/questions-client
 })
 export class QuestionsComponent implements OnInit {
   public vm: QuestionListDto = new QuestionListDto();
+  questionBoxOpen = false;
 
   constructor(private client: QuestionsClient) {
     client.getAll().subscribe(result => {
@@ -18,6 +19,10 @@ export class QuestionsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  toggleQuestionBox() {
+    this.questionBoxOpen = !this.questionBoxOpen;
   }
 
 }
