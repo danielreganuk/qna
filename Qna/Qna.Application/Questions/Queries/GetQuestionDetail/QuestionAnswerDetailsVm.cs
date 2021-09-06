@@ -19,7 +19,7 @@ namespace Qna.Application.Questions.Queries.GetQuestionDetail
             profile.CreateMap<Answer, QuestionAnswerDetailsVm>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.AnswerId))
                 .ForMember(d => d.AuthorDisplayName, opt => opt.MapFrom(s => s.Author.DisplayName))
-                .ForMember(d => d.CreatedDate, opt => opt.MapFrom(s => s.CreatedDate.ToString("hh:mm dd-MM-yyyy")))
+                .ForMember(d => d.CreatedDate, opt => opt.MapFrom(s => s.CreatedDate.ToString("HH:mm dd-MM-yyyy")))
                 .ForMember(d => d.AuthorEmailAddress, opt => opt.MapFrom(s => s.Author.EmailAddress));
         }
     }

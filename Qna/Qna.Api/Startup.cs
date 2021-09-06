@@ -66,10 +66,13 @@ namespace Qna.Api
                 endpoints.MapControllers();
             });
 
-            ctx.Database.Migrate();
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                ctx.Database.Migrate();
+                app.UseDeveloperExceptionPage();
 
-            DevelopmentInit.Init(ctx);
+                DevelopmentInit.Init(ctx);
+            }
         }
     }
 }
